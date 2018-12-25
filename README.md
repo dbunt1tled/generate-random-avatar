@@ -2,6 +2,10 @@
 
 Generate random avatars or banners.
 
+##Install
+
+`composer require dbunt1tled/generate-random-avatar`
+
 ## Features
 
 *   Custom Fonts
