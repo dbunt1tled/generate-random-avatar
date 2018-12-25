@@ -19,7 +19,7 @@ Minimal usage
 
         $avatar = (new RAvatar())
             ->setText('RB')
-            ->saveFile(realpath(__DIR__).'/0.jpg', 100);
+            ->saveFile('0.jpg', 100);
 
 ![avatar](/example/0.jpg)
 
