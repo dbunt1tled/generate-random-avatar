@@ -32,7 +32,6 @@ class RAEllipseTest extends TestCase
         $this->assertEquals(3, $ellipse->getWidth());
         $this->assertEquals(5, $ellipse->getHeight());
         $this->assertEquals('#44DDFF', $ellipse->getBackground());
-
     }
 
     public function testSetBackground()
@@ -62,16 +61,16 @@ class RAEllipseTest extends TestCase
     public function testSetBorder()
     {
         $ellipse = new RAEllipse();
-        $ellipse->setBorder(3,'#aaa');
+        $ellipse->setBorder(3, '#aaa');
 
         $this->assertEquals(3, $ellipse->getBorder()->getWidth());
         $this->assertTrue($ellipse->hasBorder());
-        $this->assertEquals('#AAAAAA',$ellipse->getBorder()->getColor());
+        $this->assertEquals('#AAAAAA', $ellipse->getBorder()->getColor());
 
         $ellipse->setBorder(2);
         $this->assertEquals(2, $ellipse->getBorder()->getWidth());
         $this->assertTrue($ellipse->hasBorder());
         $this->assertRegExp($this->patternColor, $ellipse->getBorder()->getColor());
-        $this->assertNotEquals('#AAAAAA',$ellipse->getBorder()->getColor());
+        $this->assertNotEquals('#AAAAAA', $ellipse->getBorder()->getColor());
     }
 }

@@ -2,22 +2,21 @@
 
 namespace DBUnt1tled\Test;
 
-use DBUnt1tled\Test\data\RADumpDriver;
-use DBUnt1tled\RandomAvatar\lib\drivers\RADriverFactory;
-use PHPUnit\Framework\TestCase;
-use DBUnt1tled\RandomAvatar\lib\drivers\RADriverInterface;
 use DBUnt1tled\RandomAvatar\lib\drivers\classes\RAGDDriver;
 use DBUnt1tled\RandomAvatar\lib\drivers\classes\RAImageMagickDriver;
+use DBUnt1tled\RandomAvatar\lib\drivers\RADriverFactory;
+use DBUnt1tled\RandomAvatar\lib\drivers\RADriverInterface;
+use DBUnt1tled\Test\data\RADumpDriver;
+use PHPUnit\Framework\TestCase;
 
 class RADriverFactoryTest extends TestCase
 {
-
     public function testGetFirstAvailableDriverObj()
     {
         $driverFactory = new RADriverFactory();
         $driverObject = $driverFactory->getFirstAvailableDriverObj();
         $this->assertIsObject($driverObject);
-        $this->assertInstanceOf(RADriverInterface::class,$driverObject);
+        $this->assertInstanceOf(RADriverInterface::class, $driverObject);
     }
 
     public function testGetFirstAvailableDriver()
@@ -26,7 +25,6 @@ class RADriverFactoryTest extends TestCase
         $driverObject = $driverFactory->getFirstAvailableDriver();
         $class = new \ReflectionClass($driverObject);
         $this->assertTrue($class->implementsInterface(RADriverInterface::class));
-
     }
 
     public function testAddDriver()
@@ -60,10 +58,10 @@ class RADriverFactoryTest extends TestCase
         $driverFactory = new RADriverFactory();
         $driverObject = $driverFactory->getDriverObject(RADriverFactory::DRIVER_GD);
         $this->assertIsObject($driverObject);
-        $this->assertInstanceOf(RAGDDriver::class,$driverObject);
+        $this->assertInstanceOf(RAGDDriver::class, $driverObject);
         $driverObject = $driverFactory->getDriverObject(RADriverFactory::DRIVER_IMAGE_MAGICK);
         $this->assertIsObject($driverObject);
-        $this->assertInstanceOf(RAImageMagickDriver::class,$driverObject);
+        $this->assertInstanceOf(RAImageMagickDriver::class, $driverObject);
     }
 
     public function testGetAvailableDrivers()
@@ -90,5 +88,4 @@ class RADriverFactoryTest extends TestCase
         $this->assertTrue($driverFactory->isDriverAvailable(RADriverFactory::DRIVER_IMAGE_MAGICK));
         $this->assertFalse($driverFactory->isDriverAvailable('dump'));
     }
-
 }

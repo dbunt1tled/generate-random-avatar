@@ -2,8 +2,8 @@
 
 namespace DBUnt1tled\RandomAvatar\lib\shapes\classes;
 
-use DBUnt1tled\RandomAvatar\lib\colors\RAColorInterface;
 use DBUnt1tled\RandomAvatar\lib\colors\RAColor;
+use DBUnt1tled\RandomAvatar\lib\colors\RAColorInterface;
 use DBUnt1tled\RandomAvatar\lib\fonts\RAFontInterface;
 use DBUnt1tled\RandomAvatar\lib\shapes\property\BorderInterface;
 use DBUnt1tled\RandomAvatar\lib\shapes\property\RABorder;

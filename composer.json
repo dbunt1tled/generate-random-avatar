@@ -32,6 +32,7 @@
     },
     "scripts": {
         "test": "phpunit --colors=always",
-        "cs-fixer": "php vendor/bin/php-cs-fixer fix /src --rules=@PSR2"
+        "cs-fixer": "php vendor/bin/php-cs-fixer fix src --rules='{\"@PSR2\": true, \"ordered_imports\": true, \"no_unused_imports\": true, \"array_syntax\": {\"syntax\": \"short\"}}'",
+        "cs-fixer-test": "php vendor/bin/php-cs-fixer fix tests --verbose --rules='{\"@PSR2\": true, \"ordered_imports\": true, \"no_unused_imports\": true, \"array_syntax\": {\"syntax\": \"short\"}}'"
     }
 }

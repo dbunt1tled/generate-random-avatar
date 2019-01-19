@@ -8,27 +8,25 @@ use PHPUnit\Framework\TestCase;
 
 class RAFontTest extends TestCase
 {
-
     public function test__construct()
     {
         $font = new RAFont('Sidorov Ivan Petrovich');
         $this->assertEquals('Sidorov Ivan Petrovich', $font->getText());
 
-        $font = new RAFont('Sidorov Ivan Petrovich','#abc');
+        $font = new RAFont('Sidorov Ivan Petrovich', '#abc');
         $this->assertEquals('Sidorov Ivan Petrovich', $font->getText());
         $this->assertEquals('#AABBCC', $font->getColor());
 
-        $font = new RAFont('Sidorov Ivan Petrovich','#abc',20);
+        $font = new RAFont('Sidorov Ivan Petrovich', '#abc', 20);
         $this->assertEquals('Sidorov Ivan Petrovich', $font->getText());
         $this->assertEquals('#AABBCC', $font->getColor());
         $this->assertEquals(20, $font->getSize());
 
-        $font = new RAFont('Sidorov Ivan Petrovich','#abc',20, 5);
+        $font = new RAFont('Sidorov Ivan Petrovich', '#abc', 20, 5);
         $this->assertEquals('Sidorov Ivan Petrovich', $font->getText());
         $this->assertEquals('#AABBCC', $font->getColor());
         $this->assertEquals(20, $font->getSize());
         $this->assertEquals(5, $font->getAngle());
-
     }
 
     public function testSetInitials()
@@ -56,7 +54,6 @@ class RAFontTest extends TestCase
         $font = new RAFont();
         $font->setSize(5);
         $this->assertEquals(5, $font->getSize());
-
     }
 
     public function testSetAngle()
@@ -81,5 +78,4 @@ class RAFontTest extends TestCase
         $this->assertTrue($class->implementsInterface(RAColorInterface::class));
         $this->assertEquals('#FFFFAA', $font->getColor());
     }
-
 }

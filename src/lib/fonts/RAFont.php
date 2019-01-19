@@ -2,8 +2,8 @@
 
 namespace DBUnt1tled\RandomAvatar\lib\fonts;
 
-use DBUnt1tled\RandomAvatar\lib\colors\RAColorInterface;
 use DBUnt1tled\RandomAvatar\lib\colors\RAColor;
+use DBUnt1tled\RandomAvatar\lib\colors\RAColorInterface;
 use DBUnt1tled\RandomAvatar\lib\fonts\property\RAText;
 use DBUnt1tled\RandomAvatar\lib\fonts\property\TextInterface;
 

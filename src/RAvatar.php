@@ -2,10 +2,10 @@
 
 namespace DBUnt1tled\RandomAvatar;
 
-use DBUnt1tled\RandomAvatar\lib\drivers\RADriverInterface;
 use DBUnt1tled\RandomAvatar\lib\drivers\RADriverFactory;
-use DBUnt1tled\RandomAvatar\lib\fonts\RAFontInterface;
+use DBUnt1tled\RandomAvatar\lib\drivers\RADriverInterface;
 use DBUnt1tled\RandomAvatar\lib\fonts\RAFont;
+use DBUnt1tled\RandomAvatar\lib\fonts\RAFontInterface;
 use DBUnt1tled\RandomAvatar\lib\shapes\RAShapeFactory;
 use DBUnt1tled\RandomAvatar\lib\shapes\ShapeInterface;
 use Intervention\Image\Image;

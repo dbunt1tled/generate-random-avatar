@@ -2,8 +2,8 @@
 
 namespace DBUnt1tled\RandomAvatar\lib\shapes\property;
 
-use DBUnt1tled\RandomAvatar\lib\colors\RAColorInterface;
 use DBUnt1tled\RandomAvatar\lib\colors\RAColor;
+use DBUnt1tled\RandomAvatar\lib\colors\RAColorInterface;
 
 class RABorder implements BorderInterface
 {

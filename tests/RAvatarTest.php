@@ -2,16 +2,16 @@
 
 namespace DBUnt1tled\Test;
 
-use DBUnt1tled\RandomAvatar\lib\shapes\classes\RARectangle;
-use DBUnt1tled\Test\data\RADumpDriver;
 use DBUnt1tled\RandomAvatar\lib\drivers\classes\RAGDDriver;
 use DBUnt1tled\RandomAvatar\lib\drivers\classes\RAImageMagickDriver;
 use DBUnt1tled\RandomAvatar\lib\drivers\RADriverInterface;
-use DBUnt1tled\RandomAvatar\lib\fonts\RAFontInterface;
 use DBUnt1tled\RandomAvatar\lib\fonts\RAFont;
+use DBUnt1tled\RandomAvatar\lib\fonts\RAFontInterface;
 use DBUnt1tled\RandomAvatar\lib\shapes\classes\RAEllipse;
+use DBUnt1tled\RandomAvatar\lib\shapes\classes\RARectangle;
 use DBUnt1tled\RandomAvatar\lib\shapes\ShapeInterface;
 use DBUnt1tled\RandomAvatar\RAvatar;
+use DBUnt1tled\Test\data\RADumpDriver;
 use DBUnt1tled\Test\data\RADumpShape;
 use PHPUnit\Framework\TestCase;
 
@@ -32,30 +32,30 @@ class RAvatarTest extends TestCase
         $this->assertTrue($class->implementsInterface(RAFontInterface::class));
 
         $avatar = new RAvatar(new RADumpShape());
-        $this->assertInstanceOf(RADumpShape::class,$avatar->getFigure());
+        $this->assertInstanceOf(RADumpShape::class, $avatar->getFigure());
 
         $avatar = new RAvatar(new RADumpShape(), new RAFont());
-        $this->assertInstanceOf(RADumpShape::class,$avatar->getFigure());
-        $this->assertInstanceOf(RAFont::class,$avatar->getFont());
+        $this->assertInstanceOf(RADumpShape::class, $avatar->getFigure());
+        $this->assertInstanceOf(RAFont::class, $avatar->getFont());
 
         $avatar = new RAvatar(new RADumpShape(), new RAFont(), new RADumpDriver());
 
-        $this->assertInstanceOf(RADumpShape::class,$avatar->getFigure());
-        $this->assertInstanceOf(RAFont::class,$avatar->getFont());
-        $this->assertInstanceOf(RADumpDriver::class,$avatar->getDriver());
+        $this->assertInstanceOf(RADumpShape::class, $avatar->getFigure());
+        $this->assertInstanceOf(RAFont::class, $avatar->getFont());
+        $this->assertInstanceOf(RADumpDriver::class, $avatar->getDriver());
     }
 
     public function testSetFigure()
     {
         $avatar = new RAvatar();
-        $this->assertNotInstanceOf(RADumpShape::class,$avatar->getFigure());
+        $this->assertNotInstanceOf(RADumpShape::class, $avatar->getFigure());
         $avatar->setFigure(new RADumpShape());
-        $this->assertInstanceOf(RADumpShape::class,$avatar->getFigure());
+        $this->assertInstanceOf(RADumpShape::class, $avatar->getFigure());
     }
 
     public function testSetShape()
     {
-        $avatar = (new RAvatar())->setShape(RAEllipse::SHAPE_NAME,40,39,'#aaa');
+        $avatar = (new RAvatar())->setShape(RAEllipse::SHAPE_NAME, 40, 39, '#aaa');
         $shape = $avatar->getFigure();
         $this->assertInstanceOf(RAEllipse::class, $shape);
         $this->assertEquals(40, $shape->getWidth());
@@ -85,7 +85,7 @@ class RAvatarTest extends TestCase
     public function testSetInverseColorText()
     {
         $avatar = (new RAvatar())
-            ->setText('GD','#AAAAAA')
+            ->setText('GD', '#AAAAAA')
             ->setShape(RARectangle::SHAPE_NAME, 60, 60, '#000000');
         $font = $avatar->getFont();
         $shape = $avatar->getFigure();
@@ -161,15 +161,15 @@ class RAvatarTest extends TestCase
         $avatar = (new RAvatar())->setBorder(3, '#0AB');
         $shape = $avatar->getFigure();
         $this->assertTrue($shape->hasBorder());
-        $this->assertEquals(3,$shape->getBorder()->getWidth());
-        $this->assertEquals('#00AABB',$shape->getBorder()->getColor());
+        $this->assertEquals(3, $shape->getBorder()->getWidth());
+        $this->assertEquals('#00AABB', $shape->getBorder()->getColor());
     }
 
     public function testSetDriver()
     {
         $avatar = (new RAvatar())->setDriver(new RADumpDriver());
         $this->assertEquals(RADumpDriver::DRIVER_NAME, $avatar->getDriver()->getName());
-        $this->assertInstanceOf(RADumpDriver::class,$avatar->getDriver());
+        $this->assertInstanceOf(RADumpDriver::class, $avatar->getDriver());
     }
 
     public function testSetFont()
@@ -177,7 +177,7 @@ class RAvatarTest extends TestCase
         $avatar = (new RAvatar())->setFont(
             (new RAFont())->setText('Petr Snigerev')
             );
-        $this->assertInstanceOf(RAFont::class,$avatar->getFont());
+        $this->assertInstanceOf(RAFont::class, $avatar->getFont());
         $this->assertEquals('Petr Snigerev', $avatar->getFont()->getText());
     }
 }

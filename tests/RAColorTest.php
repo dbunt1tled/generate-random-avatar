@@ -61,5 +61,4 @@ class RAColorTest extends TestCase
         $this->assertRegExp($this->patternColor, $color->getColor());
         $this->assertNotEquals('#ABCDEFF', $color->getColor());
     }
-
 }
