@@ -32,7 +32,7 @@ class RAColor implements RAColorInterface
      * @param string $color
      * @return RAColorInterface
      */
-    public function setColor(?string $color): RAColorInterface
+    public function setColor(string $color = null): RAColorInterface
     {
         if (!$this->validateColor($color)) {
             $color = $this->getRandomColor();
@@ -58,7 +58,7 @@ class RAColor implements RAColorInterface
      * @param bool $sendException
      * @return string
      */
-    public function getRandomColor(bool $sendException = false): string
+    public function getRandomColor(bool $sendException = null): string
     {
         $rand = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
         try {

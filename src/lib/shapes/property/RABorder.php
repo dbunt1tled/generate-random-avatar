@@ -1,6 +1,5 @@
 <?php
 
-
 namespace DBUnt1tled\RandomAvatar\lib\shapes\property;
 
 use DBUnt1tled\RandomAvatar\lib\colors\RAColorInterface;

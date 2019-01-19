@@ -1,6 +1,5 @@
 <?php
 
-
 namespace DBUnt1tled\RandomAvatar\lib\shapes\property;
 
 interface BorderInterface

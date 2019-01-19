@@ -78,7 +78,7 @@ class RAFont implements RAFontInterface
 
     /**
      * @param bool $asString
-     * @return RAColorInterface|RAColor|string
+     * @return RAColor|RAColorInterface|string
      */
     public function getColor(bool $asString = true)
     {
