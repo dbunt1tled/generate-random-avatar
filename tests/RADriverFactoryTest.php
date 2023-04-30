@@ -2,12 +2,12 @@
 
 namespace DBUnt1tled\Test;
 
-use DBUnt1tled\RandomAvatar\lib\drivers\classes\RAGDDriver;
-use DBUnt1tled\RandomAvatar\lib\drivers\classes\RAImageMagickDriver;
+use PHPUnit\Framework\TestCase;
+use DBUnt1tled\Test\data\RADumpDriver;
 use DBUnt1tled\RandomAvatar\lib\drivers\RADriverFactory;
 use DBUnt1tled\RandomAvatar\lib\drivers\RADriverInterface;
-use DBUnt1tled\Test\data\RADumpDriver;
-use PHPUnit\Framework\TestCase;
+use DBUnt1tled\RandomAvatar\lib\drivers\classes\RAGDDriver;
+use DBUnt1tled\RandomAvatar\lib\drivers\classes\RAImageMagickDriver;
 
 class RADriverFactoryTest extends TestCase
 {
@@ -51,7 +51,6 @@ class RADriverFactoryTest extends TestCase
         $driverFactory->deleteDriver(RADumpDriver::DRIVER_NAME);
         $this->assertFalse($driverFactory->isDriverAvailable(RADumpDriver::DRIVER_NAME));
     }
-
 
     public function testGetDriverObject()
     {

@@ -2,13 +2,13 @@
 
 namespace DBUnt1tled\Test;
 
-use DBUnt1tled\RandomAvatar\lib\colors\RAColorInterface;
-use DBUnt1tled\RandomAvatar\lib\fonts\RAFont;
 use PHPUnit\Framework\TestCase;
+use DBUnt1tled\RandomAvatar\lib\fonts\RAFont;
+use DBUnt1tled\RandomAvatar\lib\colors\RAColorInterface;
 
 class RAFontTest extends TestCase
 {
-    public function test__construct()
+    public function testConstruct()
     {
         $font = new RAFont('Sidorov Ivan Petrovich');
         $this->assertEquals('Sidorov Ivan Petrovich', $font->getText());
@@ -66,7 +66,7 @@ class RAFontTest extends TestCase
     public function testSetFontFile()
     {
         $font = new RAFont();
-        $font->setFontFile(realpath(__DIR__) . '/data/myriadpro_reg.ttf');
+        $font->setFontFile(realpath(__DIR__).'/data/myriadpro_reg.ttf');
         $this->assertTrue($font->isFontAvailable());
     }
 
