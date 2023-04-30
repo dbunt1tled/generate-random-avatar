@@ -31,7 +31,7 @@
         }
     },
     "scripts": {
-        "test": "phpunit --colors=always",
+        "test": "phpunit --testdox --colors=always",
         "test-report": "phpunit --log-junit tests/results/phpunit.xml -c phpunit.xml",
         "phpcs": "php-cs-fixer fix --config=.php-cs-fixer.php --allow-risky=yes --dry-run",
         "phpcs:fix": "php-cs-fixer fix --config=.php-cs-fixer.php --allow-risky=yes"
