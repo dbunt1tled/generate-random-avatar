@@ -2,26 +2,25 @@
 
 namespace DBUnt1tled\Test;
 
-use DBUnt1tled\RandomAvatar\lib\drivers\classes\RAGDDriver;
-use DBUnt1tled\RandomAvatar\lib\drivers\classes\RAImageMagickDriver;
-use DBUnt1tled\RandomAvatar\lib\drivers\RADriverInterface;
+use PHPUnit\Framework\TestCase;
+use DBUnt1tled\RandomAvatar\RAvatar;
+use DBUnt1tled\Test\data\RADumpShape;
+use DBUnt1tled\Test\data\RADumpDriver;
 use DBUnt1tled\RandomAvatar\lib\fonts\RAFont;
 use DBUnt1tled\RandomAvatar\lib\fonts\RAFontInterface;
-use DBUnt1tled\RandomAvatar\lib\shapes\classes\RAEllipse;
-use DBUnt1tled\RandomAvatar\lib\shapes\classes\RARectangle;
 use DBUnt1tled\RandomAvatar\lib\shapes\ShapeInterface;
-use DBUnt1tled\RandomAvatar\RAvatar;
-use DBUnt1tled\Test\data\RADumpDriver;
-use DBUnt1tled\Test\data\RADumpShape;
-use PHPUnit\Framework\TestCase;
+use DBUnt1tled\RandomAvatar\lib\shapes\classes\RAEllipse;
+use DBUnt1tled\RandomAvatar\lib\drivers\RADriverInterface;
+use DBUnt1tled\RandomAvatar\lib\drivers\classes\RAGDDriver;
+use DBUnt1tled\RandomAvatar\lib\shapes\classes\RARectangle;
+use DBUnt1tled\RandomAvatar\lib\drivers\classes\RAImageMagickDriver;
 
 class RAvatarTest extends TestCase
 {
-
     /** @var string */
     private $patternColor = '/#([a-f0-9]{6})\b/i';
 
-    public function test__construct()
+    public function testConstruct()
     {
         $avatar = new RAvatar();
         $class = new \ReflectionClass($avatar->getDriver());
@@ -121,7 +120,7 @@ class RAvatarTest extends TestCase
         $avatar->setBackGroundColor();
         $shape = $avatar->getFigure();
         $this->assertNotEquals('#EEEEEE', $shape->getBackground());
-        $this->assertRegExp($this->patternColor, $shape->getBackground());
+        $this->assertMatchesRegularExpression($this->patternColor, $shape->getBackground());
     }
 
     public function testSetTextColor()
@@ -139,7 +138,7 @@ class RAvatarTest extends TestCase
         $avatar->setTextColor();
         $font = $avatar->getFont();
         $this->assertNotEquals('#EEEEEE', $font->getColor());
-        $this->assertRegExp($this->patternColor, $font->getColor());
+        $this->assertMatchesRegularExpression($this->patternColor, $font->getColor());
     }
 
     public function testSetInitials()
@@ -176,7 +175,7 @@ class RAvatarTest extends TestCase
     {
         $avatar = (new RAvatar())->setFont(
             (new RAFont())->setText('Petr Snigerev')
-            );
+        );
         $this->assertInstanceOf(RAFont::class, $avatar->getFont());
         $this->assertEquals('Petr Snigerev', $avatar->getFont()->getText());
     }

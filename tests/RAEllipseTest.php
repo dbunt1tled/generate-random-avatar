@@ -2,31 +2,31 @@
 
 namespace DBUnt1tled\Test;
 
+use PHPUnit\Framework\TestCase;
 use DBUnt1tled\RandomAvatar\lib\colors\RAColorInterface;
 use DBUnt1tled\RandomAvatar\lib\shapes\classes\RAEllipse;
-use PHPUnit\Framework\TestCase;
 
 class RAEllipseTest extends TestCase
 {
     /** @var string */
     private $patternColor = '/#([a-f0-9]{6})\b/i';
 
-    public function test__construct()
+    public function testConstruct()
     {
         $ellipse = new RAEllipse();
         $this->assertEquals(80, $ellipse->getWidth());
         $this->assertEquals(80, $ellipse->getHeight());
-        $this->assertRegExp($this->patternColor, $ellipse->getBackground());
+        $this->assertMatchesRegularExpression($this->patternColor, $ellipse->getBackground());
 
         $ellipse = new RAEllipse(3);
         $this->assertEquals(3, $ellipse->getWidth());
         $this->assertEquals(80, $ellipse->getHeight());
-        $this->assertRegExp($this->patternColor, $ellipse->getBackground());
+        $this->assertMatchesRegularExpression($this->patternColor, $ellipse->getBackground());
 
         $ellipse = new RAEllipse(3, 5);
         $this->assertEquals(3, $ellipse->getWidth());
         $this->assertEquals(5, $ellipse->getHeight());
-        $this->assertRegExp($this->patternColor, $ellipse->getBackground());
+        $this->assertMatchesRegularExpression($this->patternColor, $ellipse->getBackground());
 
         $ellipse = new RAEllipse(3, 5, '#4df');
         $this->assertEquals(3, $ellipse->getWidth());
@@ -50,7 +50,6 @@ class RAEllipseTest extends TestCase
         $this->assertEquals(4, $ellipse->getWidth());
     }
 
-
     public function testSetHeight()
     {
         $ellipse = new RAEllipse();
@@ -70,7 +69,7 @@ class RAEllipseTest extends TestCase
         $ellipse->setBorder(2);
         $this->assertEquals(2, $ellipse->getBorder()->getWidth());
         $this->assertTrue($ellipse->hasBorder());
-        $this->assertRegExp($this->patternColor, $ellipse->getBorder()->getColor());
+        $this->assertMatchesRegularExpression($this->patternColor, $ellipse->getBorder()->getColor());
         $this->assertNotEquals('#AAAAAA', $ellipse->getBorder()->getColor());
     }
 }

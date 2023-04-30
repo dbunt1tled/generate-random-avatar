@@ -2,8 +2,8 @@
 
 namespace DBUnt1tled\Test;
 
-use DBUnt1tled\RandomAvatar\lib\shapes\property\RABorder;
 use PHPUnit\Framework\TestCase;
+use DBUnt1tled\RandomAvatar\lib\shapes\property\RABorder;
 
 class RABorderTest extends TestCase
 {
@@ -13,13 +13,13 @@ class RABorderTest extends TestCase
     public function testSetColor()
     {
         $border = new RABorder();
-        $this->assertRegExp($this->patternColor, $border->getColor());
+        $this->assertMatchesRegularExpression($this->patternColor, $border->getColor());
         $border->setColor('#a0f');
         $this->assertEquals('#AA00FF', $border->getColor());
         $border->setColor(null);
-        $this->assertRegExp($this->patternColor, $border->getColor());
+        $this->assertMatchesRegularExpression($this->patternColor, $border->getColor());
         $border->setColor('zrada');
-        $this->assertRegExp($this->patternColor, $border->getColor());
+        $this->assertMatchesRegularExpression($this->patternColor, $border->getColor());
     }
 
     public function testSetWidth()
@@ -42,17 +42,17 @@ class RABorderTest extends TestCase
         $this->assertFalse($border->hasBorder());
     }
 
-    public function test__construct()
+    public function testConstruct()
     {
         $border = new RABorder();
         $this->assertFalse($border->hasBorder());
         $this->assertEquals(0, $border->getWidth());
-        $this->assertRegExp('/#([a-f0-9]{6})\b/i', $border->getColor());
+        $this->assertMatchesRegularExpression('/#([a-f0-9]{6})\b/i', $border->getColor());
 
         $border = new RABorder(3);
         $this->assertTrue($border->hasBorder());
         $this->assertEquals(3, $border->getWidth());
-        $this->assertRegExp('/#([a-f0-9]{6})\b/i', $border->getColor());
+        $this->assertMatchesRegularExpression('/#([a-f0-9]{6})\b/i', $border->getColor());
 
         $border = new RABorder(null, '#00FFEE');
         $this->assertFalse($border->hasBorder());
@@ -67,6 +67,6 @@ class RABorderTest extends TestCase
         $border = new RABorder(4, '#abcd');
         $this->assertTrue($border->hasBorder());
         $this->assertEquals(4, $border->getWidth());
-        $this->assertRegExp('/#([a-f0-9]{6})\b/i', $border->getColor());
+        $this->assertMatchesRegularExpression('/#([a-f0-9]{6})\b/i', $border->getColor());
     }
 }

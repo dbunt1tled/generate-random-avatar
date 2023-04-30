@@ -2,14 +2,14 @@
 
 namespace DBUnt1tled\Test;
 
-use DBUnt1tled\RandomAvatar\lib\shapes\classes\RAEllipse;
-use DBUnt1tled\RandomAvatar\lib\shapes\RAShapeFactory;
-use DBUnt1tled\Test\data\RADumpShape;
 use PHPUnit\Framework\TestCase;
+use DBUnt1tled\Test\data\RADumpShape;
+use DBUnt1tled\RandomAvatar\lib\shapes\RAShapeFactory;
+use DBUnt1tled\RandomAvatar\lib\shapes\classes\RAEllipse;
 
 class RAShapeFactoryTest extends TestCase
 {
-    public function test__construct()
+    public function testConstruct()
     {
         $shapeFactory = new RAShapeFactory();
         $this->assertIsArray($shapeFactory->getShapesAvailable());

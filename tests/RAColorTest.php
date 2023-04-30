@@ -2,8 +2,8 @@
 
 namespace DBUnt1tled\Test;
 
-use DBUnt1tled\RandomAvatar\lib\colors\RAColor;
 use PHPUnit\Framework\TestCase;
+use DBUnt1tled\RandomAvatar\lib\colors\RAColor;
 
 class RAColorTest extends TestCase
 {
@@ -25,12 +25,12 @@ class RAColorTest extends TestCase
     {
         $color = new RAColor();
         $color->setColor(null);
-        $this->assertRegExp($this->patternColor, $color->getColor());
+        $this->assertMatchesRegularExpression($this->patternColor, $color->getColor());
         $color->setColor('#0aC');
         $this->assertEquals('#00AACC', $color->getColor());
         $color->setColor('#0aC1');
         $this->assertNotEquals('#0aC1', $color->getColor());
-        $this->assertRegExp($this->patternColor, $color->getColor());
+        $this->assertMatchesRegularExpression($this->patternColor, $color->getColor());
     }
 
     public function testSetRandomColor()
@@ -38,7 +38,7 @@ class RAColorTest extends TestCase
         $color = new RAColor();
         $colorTmp = $color->getColor();
         $color->setRandomColor();
-        $this->assertRegExp($this->patternColor, $color->getColor());
+        $this->assertMatchesRegularExpression($this->patternColor, $color->getColor());
         $this->assertNotEquals($colorTmp, $color->getColor());
     }
 
@@ -51,14 +51,14 @@ class RAColorTest extends TestCase
         $this->assertEquals('#000000', $color->getColor());
     }
 
-    public function test__construct()
+    public function testConstruct()
     {
         $color = new RAColor('#fff');
         $this->assertEquals('#FFFFFF', $color->getColor());
         $color = new RAColor('#ABCDEF');
         $this->assertEquals('#ABCDEF', $color->getColor());
         $color = new RAColor('#ABCDEFF');
-        $this->assertRegExp($this->patternColor, $color->getColor());
+        $this->assertMatchesRegularExpression($this->patternColor, $color->getColor());
         $this->assertNotEquals('#ABCDEFF', $color->getColor());
     }
 }
